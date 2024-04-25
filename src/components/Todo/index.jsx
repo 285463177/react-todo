@@ -11,13 +11,19 @@ export default class Todo extends Component {
       { id: '003', name: '打代码', done: false }
     ]
   }
+  addTodo = (todoObj) => {
+    const newTodos = [todoObj, ...this.state.todos]
+    this.setState({ todos: newTodos })
+  }
+
   render() {
-    const {todos} = this.state
+    const { todos } = this.state
+
     return (
       <div className="todo-container">
         <div className="todo-wrap">
-          <Header />
-          <List todos={todos}/>
+          <Header addTodo={this.addTodo} />
+          <List todos={todos} />
           <Footer />
         </div>
       </div>
