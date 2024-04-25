@@ -12,6 +12,7 @@ export default class Todo extends Component {
     ]
   }
   addTodo = (todoObj) => {
+    console.log('addTodo', todoObj)
     const newTodos = [todoObj, ...this.state.todos]
     this.setState({ todos: newTodos })
   }
